@@ -76,8 +76,8 @@
                     </div>
                 </div>
             </div>
-            <?php include('errors.php'); ?>
         </div>
+        <?php include('errors.php'); ?>
     </main>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
