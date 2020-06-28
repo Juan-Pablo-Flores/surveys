@@ -28,8 +28,8 @@
             $reg_user = mysqli_real_escape_string($db, $_POST['reg_user']);
             $reg_password = mysqli_real_escape_string($db, $_POST['reg_password']);
 
-            array_push($errors, $_POST['reg_user']);
-            array_push($errors, $_POST['reg_password']);
+            array_push($errors, $reg_user);
+            array_push($errors, $reg_password);
 
             // first check the database to make sure if the user exists
             $user_check_query = "SELECT * FROM usuarios WHERE usuario='$reg_user' LIMIT 1";
