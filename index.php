@@ -38,9 +38,10 @@
 			$i = 0;
 		?>
 			<?php while(($row =  mysqli_fetch_assoc($result))) : ?>
-				<?php if ($i % 3 == 0) :?>
+				<?php if ($i % 5 == 0) :?>
 					<div class="row">
 				<?php  endif ?>
+					<?php $i++ ?>
 					<div class="col-4">
 						<div class="card">
 							<div class="card-body">
@@ -59,10 +60,9 @@
 							</div>
 						</div>
 					</div>
-					<?php if ($i % 3 == 0) :?>
+					<?php if (($i + 1) % 5 == 0) :?>
 						</div>
 					<?php  endif ?>
-					<?php $i++ ?>
 			<?php endwhile ?>
 		</div>
 	</main>
