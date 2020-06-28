@@ -1,4 +1,4 @@
-<? include('session.php') ?>
+<?php include('session.php') ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -71,13 +71,13 @@
 	</main>
 
 	<footer>
-	<?php  if (isset($_SESSION['username'])) : ?>
-	<div class="row">
-		<div class="col">
-			<button href="index.php?logout='1'" class="btn btn-danger btn-large text-center">Cerrar Sesión</a>
-		</div>
-	</div>
-	<?php endif ?>
+		<?php  if (isset($_SESSION['username'])) : ?>
+			<div class="row">
+				<div class="col">
+					<button href="index.php?logout='1'" class="btn btn-danger btn-large text-center">Cerrar Sesión</a>
+				</div>
+			</div>
+		<?php endif ?>
 	</footer>
 	
 	<!-- <div class="header">
