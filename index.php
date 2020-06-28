@@ -23,8 +23,16 @@
 
 		<?php 
 			include('config.php');
+
+			//utf-8
 			header('Content-Type: text/html; charset=utf-8');
-			
+
+			mysqli_query($db, "SET CHARACTER_SET_CLIENT='utf8'");
+			mysqli_query($db, "SET CHARACTER_SET_RESULTS='utf8'");
+			mysqli_query($db, "SET CHARACTER_SET_CONNECTION='utf8'");
+
+			ini_set('default_charset', 'utf-8');
+
 			$sql = "SELECT * FROM `encuestas`";
 			$result = mysqli_query($db, $sql);
 			$i = 0;
