@@ -1,6 +1,7 @@
 <?php
     include("config.php");
     session_start();
+    $errors = array(); 
 
     // REGISTER USER
     if (isset($_POST['register'])) {
