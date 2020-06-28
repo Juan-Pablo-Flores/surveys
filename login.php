@@ -33,16 +33,16 @@
                 <h3 class="mb-5 text-center">Ingresa con tu cuenta</h3>
                 <div class="container w-50 border rounded py-3">
                     <div class="d-flex flex-column">
-                        <form action="login.php" method="post">
+                        <form action="server.php" method="post">
                             <div class="form-group">
                                 <label for="login-user">Usuario</label>
                                 <input type="text" class="form-control" id="login-user"
-                                    placeholder="Ingresa tu nombre de usuario" name="login_user">
+                                    placeholder="Ingresa tu nombre de usuario" name="login_user" required>
                             </div>
                             <div class="form-group">
                                 <label for="login-password">Contraseña</label>
                                 <input type="password" class="form-control" id="login-password"
-                                    placeholder="Ingresa tu contraseña" name="login_password">
+                                    placeholder="Ingresa tu contraseña" name="login_password" required>
                             </div>
                             <div class="text-center">
                                 <button type="submit" class="btn btn-primary w-100 mb-3" name="login">Ingresar</button>
@@ -57,16 +57,16 @@
                     <small class="text-danger d-block text-center">*Debes registrarte para llenar encuestas</small>
                     <div class="container w-50 border rounded py-3">
                         <div class="d-flex flex-column">
-                            <form action="register.php" method="post">
+                            <form action="server.php" method="post">
                                 <div class="form-group">
                                     <label for="reg-user">Usuario</label>
                                     <input type="text" class="form-control" id="reg-user" placeholder="Usuario"
-                                        name="reg_user">
+                                        name="reg_user" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="reg-password">Contraseña</label>
                                     <input type="password" class="form-control" id="reg-password"
-                                        placeholder="Contraseña" name="reg_password">
+                                        placeholder="Contraseña" name="reg_password" required>
                                 </div>
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-primary w-100 mb-3" name="register">Registrarme</button>
