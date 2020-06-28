@@ -8,14 +8,14 @@
             $myusername = mysqli_real_escape_string($db,$_POST['login_user']);
             $mypassword = mysqli_real_escape_string($db,$_POST['login_password']);
 
-            $sql = "SELECT id FROM usuarios WHERE nombre = '$myusername' and contrasena = '$mypassword'";
+            $sql = "SELECT * FROM usuarios WHERE nombre = '$myusername' and contrasena = '$mypassword'";
             $result = mysqli_query($db,$sql);
             $row = mysqli_fetch_assoc($result);
 
             $count = mysqli_num_rows($result);
 
             if($count == 1) {
-                $_SESSION['login_user'] = $myusername;
+                $_SESSION['username'] = $myusername;
                 header("location: index.php");
             } else {
                 array_push($errors, "El usuario o contraseña no son correctos");
