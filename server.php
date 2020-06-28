@@ -44,7 +44,7 @@
                 $query = "INSERT INTO users (usuario, contrasena) 
                         VALUES('$reg_user', '$reg_password')";
                 mysqli_query($db, $query);
-                $_SESSION['reg_user'] = $reg_user;
+                $_SESSION['username'] = $reg_user;
                 $_SESSION['success'] = "You are now logged in";
                 header('location: index.php');
             } else {
