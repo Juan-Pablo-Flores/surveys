@@ -17,7 +17,10 @@
 		<header class="row">
             <div class="col text-center mb-4 p-0">
                 <img src="img/encuesta.png" alt="Survey Icon" class="img-fluid my-5">
-                <h1 class="mb-3 m-auto">Selecciona una Encuesta</h1>
+				<?php  if (isset($_SESSION['username'])) : ?>
+					<h1 class="mb-2 m-auto">Bienvenid@, <?php echo $_SESSION['username'] ?></h1>
+				<?php  endif ?>
+                <h2 class="mb-3 m-auto">Selecciona una Encuesta</h2>
             </div>
         </header>
 
@@ -73,9 +76,9 @@
 	<footer>
 		<?php  if (isset($_SESSION['username'])) : ?>
 			<div class="row">
-				<div class="col my-4">
+				<div class="col my-4 text-center">
 					<form action="index.php?logout='1'">
-						<input type="submit" value="Cerrar Sesión" class="btn btn-danger btn-large m-auto"/>
+						<input type="submit" value="Cerrar Sesión" class="btn btn-danger btn-large"/>
 					</form>
 				</div>
 			</div>
