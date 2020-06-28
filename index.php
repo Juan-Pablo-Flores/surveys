@@ -77,7 +77,8 @@
 		<?php  if (isset($_SESSION['username'])) : ?>
 			<div class="row">
 				<div class="col my-4 text-center">
-					<form action="index.php?logout='1'">
+					<form action="index.php" method="get">
+						<input type="text" name="logout" value="1" style="visibility: hidden;">
 						<input type="submit" value="Cerrar Sesión" class="btn btn-danger btn-large"/>
 					</form>
 				</div>
