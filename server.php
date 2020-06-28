@@ -9,15 +9,14 @@
         $reg_user = mysqli_real_escape_string($db, $_POST['reg_user']);
         $reg_password = mysqli_real_escape_string($db, $_POST['reg_password']);
 
-        // first check the database to make sure 
-        // a user does not already exist with the same reg_user and/or email
-        $user_check_query = "SELECT * FROM usuarios WHERE nombre='$reg_user' OR email='$email' LIMIT 1";
+        // first check the database to make sure if the user exists
+        $user_check_query = "SELECT * FROM usuarios WHERE nombre='$reg_user' LIMIT 1";
         $result = mysqli_query($db, $user_check_query);
         $user = mysqli_fetch_assoc($result);
         
         if ($user) { // if user exists
-            if ($user['reg_user'] === $reg_user) {
-                array_push($errors, "reg_user already exists");
+            if ($user['nombre'] === $reg_user) {
+                array_push($errors, "El usuario ya existe");
             }
         }
     
@@ -47,7 +46,7 @@
             $_SESSION['username'] = $login_user;
             $_SESSION['success'] = "You are now logged in";
             header('location: index.php');
-            }else {
+            } else {
                 array_push($errors, "Wrong username/password combination");
             }
         }

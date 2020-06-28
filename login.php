@@ -52,7 +52,7 @@
             </div>
             <div class="col p-0">
                 <div class="custom-border-left">
-                    <h3 class="mb-3 text-center">O registrate*</h3>
+                    <h3 class="mb-3 text-center">Registrate*</h3>
                     <small class="text-danger d-block text-center">*Debes registrarte para llenar encuestas</small>
                     <div class="container w-50 border rounded py-3">
                         <div class="d-flex flex-column">
