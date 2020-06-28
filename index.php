@@ -73,8 +73,10 @@
 	<footer>
 		<?php  if (isset($_SESSION['username'])) : ?>
 			<div class="row">
-				<div class="col">
-					<button href="index.php?logout='1'" class="btn btn-danger btn-large text-center">Cerrar Sesión</a>
+				<div class="col my-4">
+					<form action="index.php?logout='1'">
+						<input type="submit" value="Cerrar Sesión" class="btn btn-danger btn-large m-auto"/>
+					</form>
 				</div>
 			</div>
 		<?php endif ?>
