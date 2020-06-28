@@ -28,6 +28,9 @@
             $reg_user = mysqli_real_escape_string($db, $_POST['reg_user']);
             $reg_password = mysqli_real_escape_string($db, $_POST['reg_password']);
 
+            array_push($errors, $_POST['reg_user']);
+            array_push($errors, $_POST['reg_password']);
+
             // first check the database to make sure if the user exists
             $user_check_query = "SELECT * FROM usuarios WHERE usuario='$reg_user' LIMIT 1";
             $result = mysqli_query($db, $user_check_query);
@@ -41,7 +44,7 @@
         
             // Finally, register user if there are no errors in the form
             if (count($errors) == 0) {
-                $query = "INSERT INTO `usuarios` (`id`, `usuario`, `contrasena`) VALUES (NULL, '". $reg_user . "', '" . $reg_password. "')";
+                $query = "INSERT INTO `usuarios` (`id`, `usuario`, `contrasena`) VALUES (NULL, '$reg_user', '$reg_password')";
                 $res = mysqli_query($db, $query);
                 if (!$res) {
                     array_push($errors, "Internal Server Error");
