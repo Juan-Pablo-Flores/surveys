@@ -8,7 +8,7 @@
             $myusername = mysqli_real_escape_string($db,$_POST['login_user']);
             $mypassword = mysqli_real_escape_string($db,$_POST['login_password']);
 
-            $sql = "SELECT * FROM usuarios WHERE nombre = '$myusername' and contrasena = '$mypassword'";
+            $sql = "SELECT * FROM usuarios WHERE usuario = '$myusername' and contrasena = '$mypassword'";
             $result = mysqli_query($db,$sql);
             $row = mysqli_fetch_assoc($result);
 
