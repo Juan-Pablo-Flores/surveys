@@ -49,6 +49,8 @@
             } else {
                 array_push($errors, "Wrong username/password combination");
             }
+        } else {
+            array_push($errors, "Something went wrong");
         }
     }
   
