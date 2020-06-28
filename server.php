@@ -10,7 +10,7 @@
 
             $sql = "SELECT id FROM usuarios WHERE nombre = '$myusername' and contrasena = '$mypassword'";
             $result = mysqli_query($db,$sql);
-            $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+            $row = mysqli_fetch_assoc($result);
 
             $count = mysqli_num_rows($result);
 
@@ -19,7 +19,6 @@
                 header("location: index.php");
             } else {
                 array_push($errors, "El usuario o contraseña no son correctos");
-                header("location: login.php");
             }
         }
     }

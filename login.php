@@ -33,7 +33,7 @@
                 <h3 class="mb-5 text-center">Ingresa con tu cuenta</h3>
                 <div class="container w-50 border rounded py-3">
                     <div class="d-flex flex-column">
-                        <form action="server.php" method="post">
+                        <form action="login.php" method="post">
                             <div class="form-group">
                                 <label for="login-user">Usuario</label>
                                 <input type="text" class="form-control" id="login-user"
@@ -57,7 +57,7 @@
                     <small class="text-danger d-block text-center">*Debes registrarte para llenar encuestas</small>
                     <div class="container w-50 border rounded py-3">
                         <div class="d-flex flex-column">
-                            <form action="server.php" method="post">
+                            <form action="login.php" method="post">
                                 <div class="form-group">
                                     <label for="reg-user">Usuario</label>
                                     <input type="text" class="form-control" id="reg-user" placeholder="Usuario"
