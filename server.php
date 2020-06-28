@@ -34,7 +34,7 @@
             $user = mysqli_fetch_assoc($result);
             
             if ($user) { // if user exists
-                if ($user['nombre'] === $reg_user) {
+                if ($user['usuario'] === $reg_user) {
                     array_push($errors, "El usuario ya existe");
                 }
             }
