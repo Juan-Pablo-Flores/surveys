@@ -1,5 +1,5 @@
 <?php
-   $mysql_host = '192.168.2.76';
+   $mysql_host = 'localhost';
    $mysql_user = 'pflores';
    $mysql_password ='!qa2Ws3Ed$rF';
    $mysql_db = 'encuestas';
