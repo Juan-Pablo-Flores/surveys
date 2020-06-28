@@ -41,7 +41,7 @@
         
             // Finally, register user if there are no errors in the form
             if (count($errors) == 0) {
-                $query = "INSERT INTO `usuarios` (`id`, `usuario`, `contrasena`) VALUES (NULL, " . $_POST['reg_user'] . ", " . $_POST['reg_password'] . ")";
+                $query = "INSERT INTO `usuarios` (`id`, `usuario`, `contrasena`) VALUES (NULL, '$reg_user', '$reg_password')";
                 $res = mysqli_query($db, $query);
                 if (!$res) {
                     array_push($errors, "Internal Server Error");
