@@ -3,7 +3,7 @@
     session_start();
     $errors = array(); 
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if($_SERVER["REQUEST_METHOD"] == "POST") {
         if (isset($_POST['login'])) {
             $myusername = mysqli_real_escape_string($db,$_POST['login_user']);
             $mypassword = mysqli_real_escape_string($db,$_POST['login_password']);
@@ -19,6 +19,7 @@
                 header("location: index.php");
             } else {
                 array_push($errors, "El usuario o contraseña no son correctos");
+                header("location: login.php");
             }
         }
     }
