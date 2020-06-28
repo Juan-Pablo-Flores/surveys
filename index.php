@@ -39,7 +39,7 @@
 		?>
 			<?php while(($row =  mysqli_fetch_assoc($result))) : ?>
 				<?php if ($i % 5 == 0) :?>
-					<div class="row">
+					<div class="row mb-4">
 				<?php  endif ?>
 					<?php $i++ ?>
 					<div class="col-4">
@@ -56,7 +56,7 @@
 										<span class="badge badge-secondary">Anónima</span>
 									<?php  endif ?>
 								</p>
-								<a href="#" class="btn btn-primary">Go somewhere</a>
+								<a href="#" class="btn btn-primary">Contestar</a>
 							</div>
 						</div>
 					</div>
@@ -64,8 +64,21 @@
 						</div>
 					<?php  endif ?>
 			<?php endwhile ?>
+			<?php if (($i + 1) % 5 != 0) :?>
+				</div>
+			<?php  endif ?>
 		</div>
 	</main>
+
+	<footer>
+	<?php  if (isset($_SESSION['username'])) : ?>
+	<div class="row">
+		<div class="col">
+			<button href="index.php?logout='1'" class="btn btn-danger btn-large text-center">Cerrar Sesión</a>
+		</div>
+	</div>
+	<?php endif ?>
+	</footer>
 	
 	<!-- <div class="header">
 		<h2>Indice de encuestas</h2>
