@@ -41,12 +41,15 @@
         
             // Finally, register user if there are no errors in the form
             if (count($errors) == 0) {
-                $query = "INSERT INTO usuarios (id, usuario, contrasena) 
-                        VALUES(NULL, '$reg_user', '$reg_password')";
-                mysqli_query($db, $query);
-                $_SESSION['username'] = $reg_user;
-                $_SESSION['success'] = "You are now logged in";
-                header('location: index.php');
+                $query = "INSERT INTO usuarios (id, usuario, contrasena) VALUES (NULL, '$reg_user', '$reg_password')";
+                $res = mysqli_query($db, $query);
+                if (mysqli_affected_rows($con)>0) {
+                    $_SESSION['username'] = $reg_user;
+                    $_SESSION['success'] = "You are now logged in";
+                    header('location: index.php');
+                } else {
+                    array_push($errors, "Internal Server Error");
+                }
             } else {
                 array_push($errors, "Algo salio mal");
             }
