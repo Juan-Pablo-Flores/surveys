@@ -47,6 +47,8 @@
                 $_SESSION['reg_user'] = $reg_user;
                 $_SESSION['success'] = "You are now logged in";
                 header('location: index.php');
+            } else {
+                array_push($errors, "Algo salio mal");
             }
         }
 
