@@ -23,7 +23,8 @@
 
 		<?php 
 			include('config.php');
-
+			header('Content-Type: text/html; charset=utf-8');
+			
 			$sql = "SELECT * FROM `encuestas`";
 			$result = mysqli_query($db, $sql);
 			$i = 0;
