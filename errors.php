@@ -4,6 +4,7 @@
 			<?php foreach ($errors as $error) : ?>
 				<p><?php echo $error ?></p>
 			<?php endforeach ?>
+			<?php $errors = array(); ?>
 		</div>
   </div>
 <?php  endif ?>
