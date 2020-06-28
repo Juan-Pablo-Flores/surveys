@@ -4,4 +4,8 @@
    define('DB_PASSWORD', '!qa2Ws3Ed$rF');
    define('DB_DATABASE', 'encuestas');
    $db = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
+
+   if ($db->connect_error) {
+      die("Connection failed: " . $db->connect_error);
+   } 
 ?>
