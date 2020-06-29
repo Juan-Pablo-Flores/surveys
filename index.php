@@ -59,7 +59,7 @@
 										<span class="badge badge-secondary">Anónima</span>
 									<?php  endif ?>
 								</p>
-								<a href="#" class="btn btn-primary">Contestar</a>
+								<a href="survey.php?survey=<?php echo $row['id_encuesta']?>" class="btn btn-primary">Contestar</a>
 							</div>
 						</div>
 					</div>
@@ -85,17 +85,6 @@
 			</div>
 		<?php endif ?>
 	</footer>
-	
-	<!-- <div class="header">
-		<h2>Indice de encuestas</h2>
-	</div>
-	<div class="content">
-
-		<?php  if (isset($_SESSION['username'])) : ?>
-			<p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
-			<p> <a href="index.php?logout='1'" style="color: red;">logout</a> </p>
-		<?php endif ?>
-	</div> -->
 		
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

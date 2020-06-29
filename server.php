@@ -8,7 +8,7 @@
             $myusername = mysqli_real_escape_string($db,$_POST['login_user']);
             $mypassword = mysqli_real_escape_string($db,$_POST['login_password']);
 
-            $sql = "SELECT * FROM usuarios WHERE usuario = '$myusername' and contrasena = '$mypassword'";
+            $sql = "SELECT * FROM usuarios WHERE usuario = '$myusername' AND contrasena = '$mypassword'";
             $result = mysqli_query($db,$sql);
             $row = mysqli_fetch_assoc($result);
 
@@ -50,8 +50,6 @@
                     $_SESSION['success'] = "You are now logged in";
                     header('location: index.php');
                 }
-            } else {
-                array_push($errors, "Algo salio mal");
             }
         }
 
