@@ -50,14 +50,15 @@
                 $survey_name = $survey['nombre'];
                 $survey_desc = $survey['descripcion'];
 
-                $sql = "SELECT `pregunta` FROM `preguntas` WHERE id_enuesta=" . $survey_id;
+                $sql = "SELECT `pregunta` FROM `preguntas` WHERE id_enuesta=$survey_id";
                 $result = mysqli_query($db, $sql);
 
-                $rows = mysqli_fetch_all ($result, MYSQLI_ASSOC);
+                $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
             }
         }
     ?>
 
+    <?php echo $sql; ?>
     <main class="container">
         <?php if (count($rows) > 0) :?>
             <header class="row">
@@ -93,7 +94,7 @@
 			<div class="row">
 				<div class="col my-4 text-center">
 					<form action="index.php" method="get">
-						<input type="text" name="logout" value="1" style="visibility: hidden;">
+						<input type="text" name="logout" value="1" class="d-none">
 						<input type="submit" value="Cerrar Sesión" class="btn btn-danger btn-large"/>
 					</form>
 				</div>
