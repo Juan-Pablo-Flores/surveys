@@ -98,7 +98,9 @@
                                 </div>
                             <?php endwhile ?>
                         <?php endforeach ?>
-                        <button type="submit" class="btn.btn-primary.btn"></button>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary btn-large">Enviar</button>
+                        </div>
                     </form>
                 </div>
             </section>
