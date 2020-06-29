@@ -58,6 +58,7 @@
                 $result = mysqli_query($db, $sql);
 
                 $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
+                $i = 0;
             }
         }
     ?>
@@ -65,11 +66,11 @@
     <main class="container">
         <?php if (count($rows) > 0) :?>
             <header class="row">
-                <div class="col text-center mb-4 p-0">
+                <div class="col text-center mb-5">
                     <img src="img/encuesta.png" alt="Survey Icon" class="img-fluid my-5">
-                    <div class="box-shadow p-4 bg-white w-75 m-auto">
-                        <h2 class="mb-3 m-auto"><?php echo $survey_name ?></h2>
-                        <p><?php echo $survey_desc ?></p>
+                    <div class="box-shadow p-4 bg-white w-75 m-auto mb-4">
+                        <h2 class="p-3"><?php echo $survey_name ?></h2>
+                        <p class="p-1"><?php echo $survey_desc ?></p>
                     </div>
                 </div>
             </header>
@@ -77,19 +78,21 @@
             <section class="box-shadow bg-white w-75 m-auto">
                 <div class="container p-4">
                     <?php foreach($rows as $row): ?>
-                        <p><?php echo $row['pregunta']?></p>
+                        <p class="mt-4 mb-2 font-weight-bold"><?php echo $row['pregunta']?></p>
                         
                         <?php 
                             $question_id = $row['id'];
-                            $sql = "SELECT `opcion` FROM `opciones` WHERE id_pregunta = '$question_id'";
+                            $sql = "SELECT `id`,`opcion` FROM `opciones` WHERE id_pregunta = '$question_id'";
                             $result = mysqli_query($db, $sql);
-                            $i = 0;
                         ?>
                         <?php while(($ans =  mysqli_fetch_assoc($result))) : ?>
-                            <?php $id_str = "answer" . $i++; ?>
+                            <?php 
+                                $question_id_str = "answer" . $i++; 
+                                $option_id = $ans['id'];
+                            ?>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="<?php echo $id_str; ?>" id="<?php echo $id_str; ?>" value="<?php echo $ans['opcion']; ?>" required>
-                                <label class="form-check-label" for="<?php echo $id_str; ?>">
+                                <input class="form-check-input" type="radio" name="<?php echo $option_id; ?>" id="<?php echo $question_id_str; ?>" value="<?php echo $ans['opcion']; ?>" required>
+                                <label class="form-check-label" for="<?php echo $question_id_str; ?>">
                                     <?php echo $ans['opcion']; ?>
                                 </label>
                             </div>
