@@ -64,11 +64,13 @@
 
     <main class="container">
         <?php if (count($rows) > 0) :?>
-            <header class="row box-shadow p-4 bg-white">
+            <header class="row">
                 <div class="col text-center mb-4 p-0">
                     <img src="img/encuesta.png" alt="Survey Icon" class="img-fluid my-5">
-                    <h2 class="mb-3 m-auto"><?php echo $survey_name ?></h2>
-                    <p><?php echo $survey_desc ?></p>
+                    <div class="box-shadow p-4 bg-white w-75 m-auto">
+                        <h2 class="mb-3 m-auto"><?php echo $survey_name ?></h2>
+                        <p><?php echo $survey_desc ?></p>
+                    </div>
                 </div>
             </header>
 
@@ -111,6 +113,7 @@
 		<?php  if (isset($_SESSION['username'])) : ?>
 			<div class="row">
 				<div class="col my-4 text-center">
+                    <a href="index.php" class="btn btn-secondary btn-large">Volver</a>
 					<form action="index.php" method="get">
 						<input type="text" name="logout" value="1" class="d-none">
 						<input type="submit" value="Cerrar Sesión" class="btn btn-danger btn-large"/>
