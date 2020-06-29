@@ -30,4 +30,5 @@
                 }
             }
         }
+        header('location: index.php');
     }
