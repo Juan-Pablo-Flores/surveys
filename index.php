@@ -59,7 +59,7 @@
 										<span class="badge badge-secondary">Anónima</span>
 									<?php  endif ?>
 								</p>
-								<a href="survey.php?survey=<?php echo $row['id_encuesta']?>" class="btn btn-primary">Contestar</a>
+								<a href="encuesta.php?survey=<?php echo $row['id_encuesta']?>" class="btn btn-primary">Contestar</a>
 							</div>
 						</div>
 					</div>
