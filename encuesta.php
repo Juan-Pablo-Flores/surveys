@@ -77,28 +77,30 @@
 
             <section class="box-shadow bg-white w-75 m-auto">
                 <div class="container p-4">
-                    <?php foreach($rows as $row): ?>
-                        <p class="mt-4 mb-2 font-weight-bold"><?php echo $row['pregunta']?></p>
-                        
-                        <?php 
-                            $question_id = $row['id'];
-                            $sql = "SELECT `id`,`opcion` FROM `opciones` WHERE id_pregunta = '$question_id'";
-                            $result = mysqli_query($db, $sql);
-                        ?>
-                        <?php while(($ans =  mysqli_fetch_assoc($result))) : ?>
+                    <form action="#" method="post">
+                        <?php foreach($rows as $row): ?>
+                            <p class="mt-4 mb-2 font-weight-bold"><?php echo $row['pregunta']?></p>
+                            
                             <?php 
-                                $question_id_str = "answer" . $i++; 
-                                $option_id = $ans['id'];
+                                $question_id = $row['id'];
+                                $sql = "SELECT `id`,`opcion` FROM `opciones` WHERE id_pregunta = '$question_id'";
+                                $result = mysqli_query($db, $sql);
                             ?>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="<?php echo $option_id; ?>" id="<?php echo $question_id_str; ?>" value="<?php echo $ans['opcion']; ?>" required>
-                                <label class="form-check-label" for="<?php echo $question_id_str; ?>">
-                                    <?php echo $ans['opcion']; ?>
-                                </label>
-                            </div>
-                        <?php endwhile ?>
-
-                    <?php endforeach ?>
+                            <?php while(($ans =  mysqli_fetch_assoc($result))) : ?>
+                                <?php 
+                                    $question_id_str = "answer" . $i++; 
+                                    $option_id = $ans['id'];
+                                ?>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="<?php echo $question_id_str; ?>" id="<?php echo $option_id; ?>" value="<?php echo $ans['opcion']; ?>" required>
+                                    <label class="form-check-label" for="<?php echo $option_id; ?>">
+                                        <?php echo $ans['opcion']; ?>
+                                    </label>
+                                </div>
+                            <?php endwhile ?>
+                        <?php endforeach ?>
+                        <button type="submit" class="btn.btn-primary.btn"></button>
+                    </form>
                 </div>
             </section>
         <?php else : ?>
