@@ -53,6 +53,7 @@
                 $survey = mysqli_fetch_assoc($survey_result);
                 $survey_name = $survey['nombre'];
                 $survey_desc = $survey['descripcion'];
+                $survey_anon = (int)$survey['anonima'];
 
                 $sql = "SELECT `id`,`pregunta` FROM `preguntas` WHERE id_encuesta=$survey_id";
                 $result = mysqli_query($db, $sql);
@@ -77,7 +78,7 @@
 
             <section class="box-shadow bg-white w-75 m-auto">
                 <div class="container p-4">
-                    <form action="#" method="post">
+                    <form action="submit.php" method="post">
                         <?php foreach($rows as $row): ?>
                             <p class="mt-4 mb-2 font-weight-bold"><?php echo $row['pregunta']?></p>
                             
@@ -91,13 +92,21 @@
                                     $option_id = $ans['id'];
                                 ?>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="<?php echo $question_id; ?>" id="<?php echo $option_id; ?>" value="<?php echo $ans['opcion']; ?>" required>
+                                    <input class="form-check-input" type="radio" name="<?php echo $question_id; ?>" id="<?php echo $option_id; ?>" value="<?php echo $option_id; ?>" required>
                                     <label class="form-check-label" for="<?php echo $option_id; ?>">
                                         <?php echo $ans['opcion']; ?>
                                     </label>
                                 </div>
                             <?php endwhile ?>
                         <?php endforeach ?>
+                        <?php if ($survey_anon === 1) :?>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="anon" value="1" id="anon">
+                                <label class="form-check-label" for="anon">
+                                    Enviar de forma anónima
+                                </label>
+                            </div>
+                        <?php endif ?>
                         <div class="text-center">
                             <button type="submit" class="btn btn-primary btn-large">Enviar</button>
                         </div>
