@@ -50,7 +50,7 @@
                 $survey_name = $survey['nombre'];
                 $survey_desc = $survey['descripcion'];
 
-                $sql = "SELECT `pregunta` FROM `preguntas` WHERE id_enuesta='$survey_id'";
+                $sql = "SELECT `pregunta` FROM `preguntas` WHERE id_enuesta=" . $survey_id;
                 $result = mysqli_query($db, $sql);
 
                 $rows = mysqli_fetch_all ($result, MYSQLI_ASSOC);
@@ -87,7 +87,7 @@
             </header>
         <?php endif ?>
     </main>	
-    
+
 	<footer>
 		<?php  if (isset($_SESSION['username'])) : ?>
 			<div class="row">
