@@ -111,14 +111,16 @@
 
 	<footer>
 		<?php  if (isset($_SESSION['username'])) : ?>
-			<div class="row">
-				<div class="col my-4 text-center">
+			<div class="row my-4 text-center">
+                <div class="col">
                     <a href="index.php" class="btn btn-secondary btn-large">Volver</a>
+                </div>
+                <div class="col">
 					<form action="index.php" method="get">
 						<input type="text" name="logout" value="1" class="d-none">
 						<input type="submit" value="Cerrar Sesión" class="btn btn-danger btn-large"/>
 					</form>
-				</div>
+                </div>
 			</div>
 		<?php endif ?>
 	</footer>
