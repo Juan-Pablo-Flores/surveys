@@ -21,6 +21,10 @@
         .bg-blue {
             background-color: #afc6e0; 
         }
+
+        .bg-white {
+            background-color: #fff;
+        }
     </style>
 </head>
 <body class="bg-blue">
@@ -50,7 +54,7 @@
                 $survey_name = $survey['nombre'];
                 $survey_desc = $survey['descripcion'];
 
-                $sql = "SELECT `pregunta` FROM `preguntas` WHERE id_encuesta=$survey_id";
+                $sql = "SELECT `id`,`pregunta` FROM `preguntas` WHERE id_encuesta=$survey_id";
                 $result = mysqli_query($db, $sql);
 
                 $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -58,10 +62,9 @@
         }
     ?>
 
-    <?php echo $sql; ?>
     <main class="container">
         <?php if (count($rows) > 0) :?>
-            <header class="row">
+            <header class="row box-shadow p-4 bg-white">
                 <div class="col text-center mb-4 p-0">
                     <img src="img/encuesta.png" alt="Survey Icon" class="img-fluid my-5">
                     <h2 class="mb-3 m-auto"><?php echo $survey_name ?></h2>
@@ -69,14 +72,29 @@
                 </div>
             </header>
 
-            <section class="box-shadow">
-                <?php foreach($rows as $row): ?>
-                    <h4><?php echo $row['pregunta']?></h4>
-                    
-                    <!-- <?php 
-                        $sql = "";
-                    ?> -->
-                <?php endforeach ?>
+            <section class="box-shadow bg-white w-75 m-auto">
+                <div class="container p-4">
+                    <?php foreach($rows as $row): ?>
+                        <p><?php echo $row['pregunta']?></p>
+                        
+                        <?php 
+                            $question_id = $row['id'];
+                            $sql = "SELECT `opcion` FROM `opciones` WHERE id_pregunta = '$question_id'";
+                            $result = mysqli_query($db, $sql);
+                            $i = 0;
+                        ?>
+                        <?php while(($ans =  mysqli_fetch_assoc($result))) : ?>
+                            <?php $id_str = "answer" . $i++; ?>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="<?php echo $id_str; ?>" id="<?php echo $id_str; ?>" value="<?php echo $ans['opcion']; ?>" required>
+                                <label class="form-check-label" for="<?php echo $id_str; ?>">
+                                    <?php echo $ans['opcion']; ?>
+                                </label>
+                            </div>
+                        <?php endwhile ?>
+
+                    <?php endforeach ?>
+                </div>
             </section>
         <?php else : ?>
             <header class="row">
