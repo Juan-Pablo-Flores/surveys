@@ -52,14 +52,14 @@
 								<p class="card-text"><?php echo $row['descripcion']?></p>
 								<p> Tags: 
 									<?php if ($row['aleatoria'] == 1) :?>
-										
 										<span class="badge badge-primary mr-2">Aleatoria</span>
 									<?php  endif ?>
 									<?php if ($row['anonima'] == 1) :?>
 										<span class="badge badge-secondary">Anónima</span>
 									<?php  endif ?>
 								</p>
-								<a href="encuesta.php?survey=<?php echo $row['id_encuesta']?>" class="btn btn-primary">Contestar</a>
+								<?php $link_address = "encuesta.php?survey=" . $row['id_encuesta']; ?>
+								<a href="<?php echo $link_address; ?>" class="btn btn-primary">Contestar</a>
 							</div>
 						</div>
 					</div>
