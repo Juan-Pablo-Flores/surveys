@@ -87,12 +87,11 @@
                                 $result = mysqli_query($db, $sql);
                             ?>
                             <?php while(($ans =  mysqli_fetch_assoc($result))) : ?>
-                                <?php 
-                                    $question_id_str = "answer" . $i++; 
+                                <?php
                                     $option_id = $ans['id'];
                                 ?>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="<?php echo $question_id_str; ?>" id="<?php echo $option_id; ?>" value="<?php echo $ans['opcion']; ?>" required>
+                                    <input class="form-check-input" type="radio" name="<?php echo $question_id; ?>" id="<?php echo $option_id; ?>" value="<?php echo $ans['opcion']; ?>" required>
                                     <label class="form-check-label" for="<?php echo $option_id; ?>">
                                         <?php echo $ans['opcion']; ?>
                                     </label>
