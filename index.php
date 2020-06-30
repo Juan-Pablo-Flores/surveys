@@ -27,6 +27,7 @@
 					<?php  else: ?>
 						<h5 class="mb-3 m-auto text-success">Su encuesta se guardó correctactamente</h5>
 					<?php  endif ?>
+					<?php unset($_SESSION['error_count']) ?>
 				<?php  endif ?>
             </div>
         </header>
