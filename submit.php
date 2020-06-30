@@ -24,7 +24,7 @@
                 } else {
                     $sql = "INSERT INTO `respuestas` (`id_opcion`, `id_usuario`, `id_pregunta`, `instante`) VALUES ('$key', NULL, '$value', NULL)";
                 }
-
+                
                 if (!mysqli_query($db, $sql)) {
                     $_SESSION['error_count']++;
                 }
