@@ -54,11 +54,16 @@
                 $survey_name = $survey['nombre'];
                 $survey_desc = $survey['descripcion'];
                 $survey_anon = (int)$survey['anonima'];
+                $survey_shuffle = (int)$survey['aleatoria'];
 
                 $sql = "SELECT `id`,`pregunta` FROM `preguntas` WHERE id_encuesta=$survey_id";
                 $result = mysqli_query($db, $sql);
 
                 $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
+                if ($survey_shuffle === 1) {
+                    shuffle($rows);
+                }
+
                 $i = 0;
             }
         }
@@ -86,8 +91,12 @@
                                 $question_id = $row['id'];
                                 $sql = "SELECT `id`,`opcion` FROM `opciones` WHERE id_pregunta = '$question_id'";
                                 $result = mysqli_query($db, $sql);
+                                $answers = mysqli_fetch_all($result, MYSQLI_ASSOC);
+                                if ($survey_shuffle === 1) {
+                                    shuffle($answers);
+                                }
                             ?>
-                            <?php while(($ans =  mysqli_fetch_assoc($result))) : ?>
+                            <?php foreach($answers as $ans) : ?>
                                 <?php
                                     $option_id = $ans['id'];
                                 ?>
@@ -97,7 +106,7 @@
                                         <?php echo $ans['opcion']; ?>
                                     </label>
                                 </div>
-                            <?php endwhile ?>
+                            <?php endforeach ?>
                         <?php endforeach ?>
                         <?php if ($survey_anon === 1) :?>
                             <div class="form-check mt-4">
