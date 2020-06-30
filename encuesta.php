@@ -100,9 +100,9 @@
                             <?php endwhile ?>
                         <?php endforeach ?>
                         <?php if ($survey_anon === 1) :?>
-                            <div class="form-check">
+                            <div class="form-check mt-4">
                                 <input class="form-check-input" type="checkbox" name="anon" value="1" id="anon">
-                                <label class="form-check-label" for="anon">
+                                <label class="form-check-label font-weight-bold" for="anon">
                                     Enviar de forma anónima
                                 </label>
                             </div>

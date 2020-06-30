@@ -25,7 +25,7 @@
 					<?php if ($_SESSION['error_count'] > 0) : ?>
 						<h5 class="mb-3 m-auto text-danger">Lo sentimos, no pudimos guardar su encuesta :(</h5>
 					<?php  else: ?>
-						<h5 class="mb-3 m-auto text-success">Su encuesta se guardó correctactamente :(</h5>
+						<h5 class="mb-3 m-auto text-success">Su encuesta se guardó correctactamente</h5>
 					<?php  endif ?>
 				<?php  endif ?>
             </div>
